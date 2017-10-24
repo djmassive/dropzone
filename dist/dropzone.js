@@ -1651,8 +1651,9 @@ var Dropzone = function (_Emitter) {
     key: "handleFiles",
     value: function handleFiles(files) {
       var _this5 = this;
-
-      return files.map(function (file) {
+      // Repair safari bug #1640
+      const files_array = Array.from( files );
+      return files_array.map(function (file) {
         return _this5.addFile(file);
       });
     }
